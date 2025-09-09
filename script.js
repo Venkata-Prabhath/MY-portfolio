@@ -1,30 +1,59 @@
-const tempField = document.querySelector(".temp");
-const locField = document.querySelector(".location p");
-const dataField = document.querySelector(".data span");
-const weatherField = document.querySelector(".weather p");
-const searchField = document.querySelector(".Search_area");
-const form = document.querySelector("form");
-form.addEventListener('submit',searchLocation)
-let target = "Cuddapah"
-const fetchResults = async (target)=>{
-    let url = `http://api.weatherapi.com/v1/current.json?key=515b6736dfa540f4a8d131150252406&q=${target}&aqi=no`
-    const res = await fetch(url)
-    const data = await res.json()
-    let location = data.location.name
-    let time = data.location.localtime
-    let temp = data.current.temp_c
-    let condition = data.current.condition.text
-    updateDetails(temp,location,time,condition)
+const menuOpen = document.querySelector(".fa-bars-staggered");
+const navbarCollapse = document.querySelector(".navbar-collapse");
+const menuLinks = document.querySelectorAll(".navbar-menus a");
+
+menuOpen.addEventListener("click", () => {
+    navbarCollapse.classList.toggle("show");
+
+    if (menuOpen.classList.contains("fa-bars-staggered")) {
+        menuOpen.classList.remove("fa-bars-staggered");
+        menuOpen.classList.add("fa-xmark");
+    } else {
+        menuOpen.classList.remove("fa-xmark");
+        menuOpen.classList.add("fa-bars-staggered");
+    }
+});
+
+menuLinks.forEach(link => {
+    link.addEventListener("click", () => {
+        navbarCollapse.classList.remove("show");
+        menuOpen.classList.remove("fa-xmark");
+        menuOpen.classList.add("fa-bars-staggered");
+    });
+});
+
+// Typing effect
+const roles = [
+    "MERN Stack Developer",
+    "Prompt Engineer",
+    "Data Scientist",
+    "AI/ML Engineer"
+];
+
+let roleIndex = 0;
+let charIndex = 0;
+const typingText = document.querySelector(".typing-text");
+
+function typeEffect() {
+    if (charIndex < roles[roleIndex].length) {
+        typingText.textContent += roles[roleIndex].charAt(charIndex);
+        charIndex++;
+        setTimeout(typeEffect, 100);
+    } else {
+        setTimeout(eraseEffect, 1500);
+    }
 }
-function updateDetails(temp,location,time,condition){
-    tempField.innerText = `${temp}°C`
-    locField.innerText = location
-    dataField.innerText = time
-    weatherField.innerText = condition
+
+function eraseEffect() {
+    if (charIndex > 0) {
+        typingText.textContent = roles[roleIndex].substring(0, charIndex - 1);
+        charIndex--;
+        setTimeout(eraseEffect, 50);
+    } else {
+        roleIndex = (roleIndex + 1) % roles.length;
+        setTimeout(typeEffect, 200);
+    }
 }
-function searchLocation(e){
-    e.preventDefault()
-    target = searchField.value
-    fetchResults(target)
-}
-fetchResults(target)
+
+document.addEventListener("DOMContentLoaded", typeEffect);
+

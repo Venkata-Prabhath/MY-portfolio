@@ -1,34 +1,70 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Weather app</title>
-    <link rel="stylesheet" href="style.css"/>
+    <title>Prabhath's-Portfolio</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap">
+    <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
-    <div class = "container">
-        <div class = "weather_container">
-            <div class="temp">
-                <p>20</p>
-            </div>
-            <div class="location">
-                <p>cuddapah</p>
-            </div>
-            <div class="data">
-                <span>12:00 - Monday 06-06-2006</span>
-            </div>
-            <div class="Weather">
-                <p>Mist</p>
-            </div>
+    <script defer src="script.js"></script>
+    <div class="container">
+        <header>
+            <nav>
+                <span class="logo"><i class="fa-solid fa-user"></i><a href="javascript:void(0)">My Portfolio</a></span>
+                <div class="number">
+                    <i class="fa fa-phone"></i>
+                    <span>(+91) 9182490688</span>
+                    <i class="fa-solid fa-bars-staggered"></i>
+                </div>
+                <div class="navbar-collapse">
+                    <div class="nav-center"></div>
+                    <div class="nav-wrapper">
+                        <ul class="navbar-menus">
+                            <li class="new-items"><a href="#home">Home</a></li>
+                            <li class="new-items"><a href="#about">About Me</a></li>
+                            <li class="new-items"><a href="#resume">Resume</a></li>
+                            <li class="new-items"><a href="#contact">Contact Me</a></li>
+                            <li class="new-items"><a href="#work">Work-Experience</a></li>
+                        </ul>
+                        <ul class="social-icons">
+                            <li class="icons"><i class="fa-brands fa-x-twitter"></i></li>
+                            <li class="icons"><i class="fa-brands fa-linkedin"></i></li>
+                            <li class="icons"><i class="fa-brands fa-github"></i></li>
+                            <li class="icons"><i class="fa-brands fa-instagram"></i></li>
+                            <li class="icons"><i class="fa-brands fa-whatsapp"></i></li>
+                        </ul>
+                    </div>
+                </div>
+            </nav>
+        </header>
+
+        <!-- Home Section -->
+        <div class="main-content">
+            <section id="home" class="home-section">
+                <div class="home-left">
+                    <h1>Hi, myself <span class="name">Venkata Prabhath</span></h1>
+                    <h2>I am a <span class="typing-text"></span></h2>
+
+                    <!-- About Me box on left side -->
+                    <div class="about-box">
+                        <p>About Me</p>
+                    </div>
+                    <p class="about-box-p">
+                        Hello i am doing great what about you!
+                    </p>
+                </div>
+
+                <div class="home-right">
+                    <img src="your-photo.jpg" alt="Venkata Prabhath" class="profile-photo">
+                </div>
+            </section>
         </div>
-        <nav>
-            <form>
-                <input type="text" placeholder="Search for any location" class="Search_area"/>
-                <button type="submit">Search Button</button>
-            </form>
-        </nav>
     </div>
 </body>
-<script src="script.js"></script>
+
 </html>
